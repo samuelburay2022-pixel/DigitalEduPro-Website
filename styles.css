@@ -1570,6 +1570,96 @@ p {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.contact-reveal-ready .contact-section .contact-reveal-item {
+  opacity: 0;
+  filter: blur(10px);
+  transition:
+    opacity 720ms cubic-bezier(0.2, 0.82, 0.22, 1),
+    transform 820ms cubic-bezier(0.2, 0.82, 0.22, 1),
+    filter 820ms cubic-bezier(0.2, 0.82, 0.22, 1);
+  transition-delay: var(--contact-reveal-delay, 0s);
+  will-change: transform, opacity, filter;
+}
+
+.contact-reveal-ready .contact-section .contact-reveal-rise {
+  transform: translate3d(0, 2rem, 0) scale(0.985);
+}
+
+.contact-reveal-ready .contact-section .contact-reveal-left {
+  transform: translate3d(-2.5rem, 1.5rem, 0) scale(0.985);
+}
+
+.contact-reveal-ready .contact-section .contact-reveal-right {
+  transform: translate3d(2.5rem, 1.5rem, 0) scale(0.985);
+}
+
+.contact-reveal-ready .contact-section .contact-reveal-item.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.contact-reveal-ready .contact-section .contact-reveal-item::before {
+  transition:
+    opacity 760ms ease,
+    transform 980ms cubic-bezier(0.18, 0.84, 0.24, 1);
+}
+
+.contact-reveal-ready .contact-section .contact-reveal-item:not(.is-visible)::before {
+  opacity: 0.24;
+  transform: translateX(-12%) scale(1.04);
+}
+
+.contact-reveal-ready .contact-section .contact-reveal-item.is-visible::before {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.team-reveal-ready .team-section .team-reveal-item {
+  opacity: 0;
+  filter: blur(10px);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.82, 0.22, 1),
+    transform 800ms cubic-bezier(0.2, 0.82, 0.22, 1),
+    filter 800ms cubic-bezier(0.2, 0.82, 0.22, 1);
+  transition-delay: var(--team-reveal-delay, 0s);
+  will-change: transform, opacity, filter;
+}
+
+.team-reveal-ready .team-section .team-reveal-rise {
+  transform: translate3d(0, 2rem, 0) scale(0.985);
+}
+
+.team-reveal-ready .team-section .team-reveal-left {
+  transform: translate3d(-2.4rem, 1.4rem, 0) scale(0.985);
+}
+
+.team-reveal-ready .team-section .team-reveal-right {
+  transform: translate3d(2.4rem, 1.4rem, 0) scale(0.985);
+}
+
+.team-reveal-ready .team-section .team-reveal-item.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.team-reveal-ready .team-section .team-reveal-item::before {
+  transition:
+    opacity 720ms ease,
+    transform 920ms cubic-bezier(0.18, 0.84, 0.24, 1);
+}
+
+.team-reveal-ready .team-section .team-reveal-item:not(.is-visible)::before {
+  opacity: 0.26;
+  transform: translateX(-10%) scale(1.04);
+}
+
+.team-reveal-ready .team-section .team-reveal-item.is-visible::before {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
 .contact-form input,
 .contact-form textarea {
   border-color: rgba(83, 105, 108, 0.24);
@@ -1588,6 +1678,18 @@ p {
 .contact-aside li::before,
 .partner-strip li::before {
   background: linear-gradient(135deg, var(--teal), var(--green));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-reveal-ready .team-section .team-reveal-item,
+  .team-reveal-ready .team-section .team-reveal-item::before,
+  .contact-reveal-ready .contact-section .contact-reveal-item,
+  .contact-reveal-ready .contact-section .contact-reveal-item::before {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
 }
 
 .site-footer {
@@ -2815,6 +2917,41 @@ p {
     min-height: 24rem;
   }
 
+  .carousel-button {
+    width: 2.45rem;
+    min-width: 2.45rem;
+    height: 2.45rem;
+    min-height: 2.45rem;
+    padding: 0;
+    border-color: rgba(255, 255, 255, 0.3);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.08)),
+      rgba(188, 224, 255, 0.12);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 10px 22px rgba(9, 35, 61, 0.16);
+    color: rgba(18, 49, 79, 0.92);
+    font-size: 1.45rem;
+    opacity: 0.82;
+  }
+
+  .carousel-button.previous {
+    left: 0.45rem;
+  }
+
+  .carousel-button.next {
+    right: 0.45rem;
+  }
+
+  .carousel-button:hover,
+  .carousel-button:focus-visible,
+  .carousel-button:active {
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.12)),
+      rgba(188, 224, 255, 0.18);
+    opacity: 1;
+  }
+
   .portfolio-media-frame img,
   .portfolio-media-frame video {
     height: 24rem;
@@ -2923,10 +3060,11 @@ section {
     opacity 220ms ease,
     filter 220ms ease;
   will-change: transform, opacity;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
-.tool-card:hover {
+.tool-card:hover,
+.tool-card.is-hovered {
   --tool-hover-scale: 1.18;
   z-index: 999 !important;
   opacity: 1;
@@ -2945,6 +3083,10 @@ section {
 .tool-card img,
 .tool-card span {
   pointer-events: none;
+}
+
+.tools-grid.is-dragging .tool-card {
+  --tool-hover-scale: 1;
 }
 
 .team-card {
@@ -3060,6 +3202,8 @@ section {
 .service-carousel-stage,
 .portfolio-carousel-stage {
   isolation: isolate;
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
   background:
     linear-gradient(115deg, rgba(255, 255, 255, 0.12), rgba(88, 196, 255, 0.16) 32%, rgba(255, 255, 255, 0.08) 58%, rgba(47, 128, 237, 0.2)),
     linear-gradient(145deg, rgba(10, 35, 58, 0.9), rgba(25, 98, 178, 0.76) 48%, rgba(13, 45, 76, 0.88));
@@ -3356,6 +3500,8 @@ section {
 }
 
 .section-scroll-arrow {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   position: fixed;
   right: max(1rem, calc((100vw - 1180px) / 2));
   bottom: 1.1rem;
@@ -3838,5 +3984,55 @@ html.is-section-scrolling .section-scroll-arrow {
   .footer-glass-chip,
   .footer-glass-chip::after {
     animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .service-carousel-stage > .carousel-button,
+  .portfolio-carousel-stage > .carousel-button {
+    width: 2.28rem !important;
+    min-width: 2.28rem !important;
+    height: 2.28rem !important;
+    min-height: 2.28rem !important;
+    padding: 0 !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04)),
+      rgba(188, 224, 255, 0.08) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 8px 18px rgba(9, 35, 61, 0.12) !important;
+    backdrop-filter: blur(14px) saturate(145%);
+    -webkit-backdrop-filter: blur(14px) saturate(145%);
+    color: rgba(18, 49, 79, 0.72) !important;
+    font-size: 1.22rem !important;
+    opacity: 0.6 !important;
+  }
+
+  .service-carousel-stage > .carousel-button.previous,
+  .portfolio-carousel-stage > .carousel-button.previous {
+    left: 0.42rem !important;
+  }
+
+  .service-carousel-stage > .carousel-button.next,
+  .portfolio-carousel-stage > .carousel-button.next {
+    right: 0.42rem !important;
+  }
+
+  .service-carousel-stage > .carousel-button:hover,
+  .service-carousel-stage > .carousel-button:focus-visible,
+  .service-carousel-stage > .carousel-button:active,
+  .portfolio-carousel-stage > .carousel-button:hover,
+  .portfolio-carousel-stage > .carousel-button:focus-visible,
+  .portfolio-carousel-stage > .carousel-button:active {
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08)),
+      rgba(188, 224, 255, 0.12) !important;
+    color: rgba(18, 49, 79, 0.88) !important;
+    opacity: 0.9 !important;
+  }
+
+  .tools-grid {
+    touch-action: none;
   }
 }

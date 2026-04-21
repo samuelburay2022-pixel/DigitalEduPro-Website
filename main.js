@@ -88,6 +88,51 @@
     return preview;
   }
 
+  function enableCarouselSwipe(element, onPrevious, onNext) {
+    let startX = 0;
+    let startY = 0;
+    let isTracking = false;
+
+    element.addEventListener(
+      "touchstart",
+      (event) => {
+        if (event.touches.length !== 1) return;
+        const touch = event.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+        isTracking = true;
+      },
+      { passive: true },
+    );
+
+    element.addEventListener(
+      "touchend",
+      (event) => {
+        if (!isTracking || event.changedTouches.length !== 1) return;
+        isTracking = false;
+
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+
+        if (Math.abs(deltaX) < 42) return;
+        if (Math.abs(deltaX) <= Math.abs(deltaY) * 1.15) return;
+
+        if (deltaX > 0) {
+          onPrevious();
+          return;
+        }
+
+        onNext();
+      },
+      { passive: true },
+    );
+
+    element.addEventListener("touchcancel", () => {
+      isTracking = false;
+    });
+  }
+
   function renderServices() {
     const grid = byId("serviceGrid");
 
@@ -145,6 +190,11 @@
       if (event.key === "ArrowLeft") updateCarousel(currentIndex - 1, -1);
       if (event.key === "ArrowRight") updateCarousel(currentIndex + 1, 1);
     });
+    enableCarouselSwipe(
+      stage,
+      () => updateCarousel(currentIndex - 1, -1),
+      () => updateCarousel(currentIndex + 1, 1),
+    );
 
     carousel.append(stage);
     updateCarousel(0, 0);
@@ -272,6 +322,11 @@
       if (event.key === "ArrowLeft") updateCarousel(currentIndex - 1, -1);
       if (event.key === "ArrowRight") updateCarousel(currentIndex + 1, 1);
     });
+    enableCarouselSwipe(
+      stage,
+      () => updateCarousel(currentIndex - 1, -1),
+      () => updateCarousel(currentIndex + 1, 1),
+    );
 
     article.setAttribute("tabindex", "0");
     article.append(stage, thumbnails);
@@ -288,11 +343,14 @@
     let velocity = 0;
     let lastFrameTime = 0;
     let isDragging = false;
+    let isHovering = false;
     let startX = 0;
     let startRotation = 0;
     let lastPointerX = 0;
     let lastPointerTime = 0;
     let hoverPointerX = null;
+    let hoverPointerY = null;
+    let hoveredCard = null;
     let audioContext = null;
     let lastSoundTime = 0;
 
@@ -362,11 +420,57 @@
       });
     }
 
+    function setHoveredCard(card) {
+      if (hoveredCard === card) return;
+      if (hoveredCard) hoveredCard.classList.remove("is-hovered");
+      hoveredCard = card;
+      if (hoveredCard) hoveredCard.classList.add("is-hovered");
+    }
+
+    function updateHoveredCard(clientX = hoverPointerX, clientY = hoverPointerY) {
+      if (isDragging || clientX === null || clientY === null) {
+        setHoveredCard(null);
+        return;
+      }
+
+      const gridRect = grid.getBoundingClientRect();
+      if (
+        clientX < gridRect.left ||
+        clientX > gridRect.right ||
+        clientY < gridRect.top ||
+        clientY > gridRect.bottom
+      ) {
+        setHoveredCard(null);
+        return;
+      }
+
+      const maxDistance = window.innerWidth < 760 ? 70 : 90;
+      let bestCard = null;
+      let bestScore = Infinity;
+
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distance = Math.hypot(clientX - centerX, clientY - centerY);
+        if (distance > maxDistance) return;
+
+        const depthBias = Number(card.style.zIndex || 0) * 0.1;
+        const score = distance - depthBias;
+        if (score < bestScore) {
+          bestScore = score;
+          bestCard = card;
+        }
+      });
+
+      setHoveredCard(bestCard);
+    }
+
     function positionCards(timestamp = 0) {
       const elapsed = lastFrameTime ? timestamp - lastFrameTime : 16;
       lastFrameTime = timestamp;
 
-      if (!isDragging && !reducedMotion.matches) {
+      if (!isDragging && !reducedMotion.matches && !isHovering) {
         if (Math.abs(velocity) > 0.00002) {
           rotation += velocity * elapsed;
           velocity *= 0.94;
@@ -376,17 +480,21 @@
       }
 
       setToolPositions();
+      updateHoveredCard();
       window.requestAnimationFrame(positionCards);
     }
 
     function startDrag(event) {
+      if (event.cancelable) event.preventDefault();
       isDragging = true;
       startX = event.clientX;
       startRotation = rotation;
       lastPointerX = event.clientX;
       lastPointerTime = performance.now();
       hoverPointerX = event.clientX;
+      hoverPointerY = event.clientY;
       velocity = 0;
+      setHoveredCard(null);
       grid.classList.add("is-dragging");
       grid.setPointerCapture(event.pointerId);
       playSwipeSound(0.8);
@@ -394,16 +502,9 @@
 
     function movePointer(event) {
       if (!isDragging) {
-        if (event.pointerType === "mouse" && hoverPointerX !== null) {
-          const hoverMoveX = event.clientX - hoverPointerX;
-          if (Math.abs(hoverMoveX) < 90) {
-            rotation += hoverMoveX * 0.0024;
-            velocity = hoverMoveX * 0.000012;
-            setToolPositions();
-          }
-        }
-
         hoverPointerX = event.clientX;
+        hoverPointerY = event.clientY;
+        updateHoveredCard(event.clientX, event.clientY);
         return;
       }
 
@@ -412,8 +513,9 @@
       const moveX = event.clientX - lastPointerX;
       const elapsed = Math.max(1, now - lastPointerTime);
 
-      rotation = startRotation + deltaX * 0.008;
-      velocity = (moveX * 0.008) / elapsed;
+      if (event.cancelable) event.preventDefault();
+      rotation = startRotation - deltaX * 0.008;
+      velocity = (-moveX * 0.008) / elapsed;
       lastPointerX = event.clientX;
       lastPointerTime = now;
       setToolPositions();
@@ -431,15 +533,25 @@
       if (grid.hasPointerCapture(event.pointerId)) {
         grid.releasePointerCapture(event.pointerId);
       }
+      hoverPointerX = event.clientX ?? null;
+      hoverPointerY = event.clientY ?? null;
+      updateHoveredCard(hoverPointerX, hoverPointerY);
     }
 
     grid.tabIndex = 0;
     grid.setAttribute("aria-label", "Swipe or drag to rotate tools and platforms");
     grid.addEventListener("pointerenter", (event) => {
+      isHovering = true;
+      velocity = 0;
       hoverPointerX = event.clientX;
+      hoverPointerY = event.clientY;
+      updateHoveredCard(event.clientX, event.clientY);
     });
     grid.addEventListener("pointerleave", () => {
+      isHovering = false;
       hoverPointerX = null;
+      hoverPointerY = null;
+      setHoveredCard(null);
     });
     grid.addEventListener("pointerdown", startDrag);
     grid.addEventListener("pointermove", movePointer);
@@ -449,7 +561,7 @@
     grid.addEventListener("keydown", (event) => {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
       event.preventDefault();
-      rotation += event.key === "ArrowLeft" ? -0.35 : 0.35;
+      rotation += event.key === "ArrowLeft" ? 0.35 : -0.35;
       velocity = 0;
       setToolPositions();
     });
@@ -499,20 +611,28 @@
       }
 
       const social = createElement("div", "team-social");
-      const profile = createElement("a", "team-social-link profile", "in");
-      profile.href = person.profile;
-      profile.setAttribute("aria-label", `${person.name} profile`);
-      if (!person.profile.startsWith("#")) {
-        profile.target = "_blank";
-        profile.rel = "noreferrer";
+      if (person.profile) {
+        const profile = createElement("a", "team-social-link profile", "in");
+        profile.href = person.profile;
+        profile.setAttribute("aria-label", `${person.name} profile`);
+        if (!person.profile.startsWith("#")) {
+          profile.target = "_blank";
+          profile.rel = "noreferrer";
+        }
+        social.append(profile);
       }
 
-      const email = createElement("a", "team-social-link mail");
-      email.href = `mailto:${person.email}`;
-      email.setAttribute("aria-label", `Email ${person.name}`);
-      social.append(profile, email);
+      if (person.email) {
+        const email = createElement("a", "team-social-link mail");
+        email.href = `mailto:${person.email}`;
+        email.setAttribute("aria-label", `Email ${person.name}`);
+        social.append(email);
+      }
 
-      article.append(image, body, social);
+      article.append(image, body);
+      if (social.childElementCount) {
+        article.append(social);
+      }
 
       grid.append(article);
     });
@@ -568,10 +688,14 @@
     if (!button) return;
 
     let transitionTimer;
+    let activePointerId = null;
+    let pointerStartX = 0;
+    let pointerStartY = 0;
+    let pointerMoved = false;
 
     function isNearPageBottom() {
       const root = document.documentElement;
-      return window.scrollY + window.innerHeight >= root.scrollHeight - 90;
+      return window.scrollY + window.innerHeight >= root.scrollHeight - 18;
     }
 
     function updateArrowDirection() {
@@ -592,7 +716,7 @@
       });
     }
 
-    button.addEventListener("click", () => {
+    function activateArrow() {
       clearTimeout(transitionTimer);
       document.documentElement.classList.add("is-section-scrolling");
       button.classList.add("is-activated");
@@ -603,6 +727,45 @@
         button.classList.remove("is-activated");
         updateArrowDirection();
       }, 950);
+    }
+
+    button.addEventListener("pointerdown", (event) => {
+      activePointerId = event.pointerId;
+      pointerStartX = event.clientX;
+      pointerStartY = event.clientY;
+      pointerMoved = false;
+    });
+
+    button.addEventListener("pointermove", (event) => {
+      if (event.pointerId !== activePointerId) return;
+      if (
+        Math.abs(event.clientX - pointerStartX) > 10 ||
+        Math.abs(event.clientY - pointerStartY) > 10
+      ) {
+        pointerMoved = true;
+      }
+    });
+
+    button.addEventListener("pointerup", (event) => {
+      if (event.pointerId !== activePointerId) return;
+      activePointerId = null;
+      if (pointerMoved) return;
+      activateArrow();
+    });
+
+    button.addEventListener("pointercancel", () => {
+      activePointerId = null;
+      pointerMoved = false;
+    });
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+    });
+
+    button.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      activateArrow();
     });
 
     window.addEventListener("scroll", updateArrowDirection, { passive: true });
@@ -670,13 +833,111 @@
     });
   }
 
+  function bindContactReveal() {
+    const section = byId("contact");
+    if (!section) return;
+
+    const stagedItems = [
+      { element: section.querySelector(".section-heading"), direction: "rise", delay: "0s" },
+      { element: section.querySelector(".contact-form"), direction: "left", delay: "0.06s" },
+      { element: section.querySelector(".email-card"), direction: "right", delay: "0.16s" },
+      { element: section.querySelector(".contact-aside"), direction: "right", delay: "0.24s" },
+      { element: section.querySelector(".growth-card"), direction: "right", delay: "0.32s" },
+    ].filter((item) => item.element);
+
+    if (!stagedItems.length) return;
+
+    stagedItems.forEach(({ element, direction, delay }) => {
+      element.classList.add("contact-reveal-item", `contact-reveal-${direction}`);
+      element.style.setProperty("--contact-reveal-delay", delay);
+    });
+
+    document.documentElement.classList.add("contact-reveal-ready");
+
+    if (!("IntersectionObserver" in window)) {
+      stagedItems.forEach(({ element }) => element.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const isVisible = entry.isIntersecting && entry.intersectionRatio >= 0.16;
+          stagedItems.forEach(({ element }) => {
+            element.classList.toggle("is-visible", isVisible);
+          });
+        });
+      },
+      {
+        threshold: [0.16, 0.32],
+        rootMargin: "0px 0px -10% 0px",
+      },
+    );
+
+    observer.observe(section);
+  }
+
+  function bindTeamReveal() {
+    const section = byId("team");
+    if (!section) return;
+
+    const stagedItems = [];
+    const heading = section.querySelector(".section-heading");
+    if (heading) {
+      stagedItems.push({ element: heading, direction: "rise", delay: "0s" });
+    }
+
+    section.querySelectorAll(".team-card").forEach((card, index) => {
+      const directions = ["left", "rise", "right"];
+      stagedItems.push({
+        element: card,
+        direction: directions[index % directions.length],
+        delay: `${0.08 + index * 0.08}s`,
+      });
+    });
+
+    if (!stagedItems.length) return;
+
+    stagedItems.forEach(({ element, direction, delay }) => {
+      element.classList.add("team-reveal-item", `team-reveal-${direction}`);
+      element.style.setProperty("--team-reveal-delay", delay);
+    });
+
+    document.documentElement.classList.add("team-reveal-ready");
+
+    if (!("IntersectionObserver" in window)) {
+      stagedItems.forEach(({ element }) => element.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const isVisible = entry.isIntersecting && entry.intersectionRatio >= 0.16;
+          stagedItems.forEach(({ element }) => {
+            element.classList.toggle("is-visible", isVisible);
+          });
+        });
+      },
+      {
+        threshold: [0.16, 0.32],
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    observer.observe(section);
+  }
+
   function alignInitialHash() {
     if (!window.location.hash) return;
 
     const target = document.querySelector(window.location.hash);
     if (!target) return;
+    let cancelled = false;
+    const timers = [];
 
     const scrollToTarget = () => {
+      if (cancelled) return;
       const root = document.documentElement;
       const previousScrollBehavior = root.style.scrollBehavior;
       root.style.scrollBehavior = "auto";
@@ -684,9 +945,14 @@
       root.style.scrollBehavior = previousScrollBehavior;
     };
 
+    const cancelAlignment = () => {
+      cancelled = true;
+      timers.forEach((timer) => clearTimeout(timer));
+    };
+
     requestAnimationFrame(scrollToTarget);
-    [120, 420, 900, 1600, 2800].forEach((delay) => {
-      setTimeout(scrollToTarget, delay);
+    [160, 520].forEach((delay) => {
+      timers.push(setTimeout(scrollToTarget, delay));
     });
 
     document.querySelectorAll("img").forEach((image) => {
@@ -695,7 +961,17 @@
       }
     });
 
-    window.addEventListener("load", () => setTimeout(scrollToTarget, 120), { once: true });
+    ["wheel", "touchstart", "pointerdown"].forEach((eventName) => {
+      window.addEventListener(eventName, cancelAlignment, { once: true, passive: true });
+    });
+    window.addEventListener("keydown", cancelAlignment, { once: true });
+    window.addEventListener(
+      "load",
+      () => {
+        timers.push(setTimeout(scrollToTarget, 120));
+      },
+      { once: true },
+    );
   }
 
   function init() {
@@ -704,11 +980,13 @@
     renderPortfolioLibrary();
     renderTools();
     renderTeam();
+    bindTeamReveal();
     renderContactReasons();
     bindMenu();
     bindContactForm();
     bindSectionScrollArrow();
     bindVideoVisibilityAudio();
+    bindContactReveal();
     alignInitialHash();
   }
 

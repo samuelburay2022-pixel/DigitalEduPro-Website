@@ -455,6 +455,34 @@
         email: "buray.nezza@gmail.com",
         resources: [],
       },
+      {
+        name: "Maddy",
+        role: "SMM Support",
+        copy:
+          "Supporting social media planning, posting, and day-to-day platform consistency for growing brands.",
+        achievements: [
+          "Social media posting and scheduling support",
+          "Content coordination for brand consistency",
+          "Platform assistance for day-to-day engagement",
+        ],
+        image: "DigitalEduPro_Profile/Team/VA_Maddy/Maddy_Photo.jpg",
+        alt: "Maddy portrait",
+        resources: [],
+      },
+      {
+        name: "Keissy",
+        role: "Creative Support",
+        copy:
+          "Providing creative production support across visual content, layouts, and campaign materials.",
+        achievements: [
+          "Creative asset preparation and design support",
+          "Layout assistance for promotional materials",
+          "Visual production support across campaigns",
+        ],
+        image: "DigitalEduPro_Profile/Team/VA_Keissy/Keissy_Photo.jpg",
+        alt: "Keissy portrait",
+        resources: [],
+      },
     ],
     contactReasons: [
       "Quick response within 24 hours",
