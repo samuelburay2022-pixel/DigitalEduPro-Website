@@ -1,0 +1,1195 @@
+Delivered-To: info@thevillagekidsclub.org
+Received: by 2002:a05:6214:509b:b0:8a2:ccf1:9f4e with SMTP id kk27csp640903qvb;
+        Fri, 10 Apr 2026 08:05:06 -0700 (PDT)
+X-Received: by 2002:a05:622a:480c:b0:50d:d538:1aa with SMTP id d75a77b69052e-50dd5bd1e5fmr55679271cf.53.1775833506574;
+        Fri, 10 Apr 2026 08:05:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775833506; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Ry+onQe1kx/VFSsVyg7hYLKCMow6S9KfrNWBcfMcLG1Z3OZAjx5PJ3YLbAPL0IEoGo
+         T2cb0iYLGoRpxvDYt35DWg7piY5N0w5n2BLYvsECtrdxNeT8uLu+sMzwpajsgTbreTLA
+         +V/EJEr/CPiE4uqNRWqPyQR4K2hxoMwF2VnFreL2mjbve5Pm/FdOHGfI6GKw0E3cHnno
+         Zg0FjHWYmEK88GoWKHNKGOqfOeyIGloVKwmYtU/zLqONMk6RqVPSCezVqClQIII40AgY
+         ziWNHXy6ASUqX8GLrtZTti/aZxKJ0Q0KhEqPKYUNb6EkcbHrPceaqyRD5ROlTS7b9Qgx
+         QKTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:list-unsubscribe:feedback-id:list-unsubscribe-post:to
+         :from:subject:mime-version:date:sender:dkim-signature:dkim-signature;
+        bh=76HpPbpnJd00UrwA75Fs9ncjP+p6BcBSskvHCdFeh1g=;
+        fh=ywSdUTXrPDCTQxmgsGSLlNKj+WFxJk8zwYO6qMWkctE=;
+        b=cwmN5u+uE21oftotv76gHSlwPPWKggzCYcpwqYrR+avw9g76sPr01ld4Eg6LlI2nps
+         ONVn+kdpJq4rvx4Vgd4aY9Bf4fh3d+jVLLcIgvVWafINXwiAlZ9vpkJjv4D47GZzg7BQ
+         uVdgi+OA6tpq6JY3NI3Xen8QhH/qfDcX9QUhMCQToIPnhEHLbO9Ny2vUIAfMKpZDpnX6
+         Mna+FmMdPbqa2PuTu1EftNvJ6hnRoPCNOdhaRcN7xosiSxNGRM+tnNM4clPNz1NOeBIR
+         Ab6gnLgwcfHcWl83tfR2DDJaSG71J6cqABwVxuVG9j6vvvSO8ohcgP91yrIiqcKM8ACP
+         9KKA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@dkim1.omnisend.email header.s=omni1 header.b=FMWt3ElR;
+       dkim=pass header.i=@thevillagekidsclub.org header.s=smtp header.b="FhM/jOXj";
+       spf=pass (google.com: domain of bounce+401c89.f2270b-info=thevillagekidsclub.org@thevillagekidsclub.org designates 204.220.169.9 as permitted sender) smtp.mailfrom="bounce+401c89.f2270b-info=thevillagekidsclub.org@thevillagekidsclub.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=thevillagekidsclub.org
+Return-Path: <bounce+401c89.f2270b-info=thevillagekidsclub.org@thevillagekidsclub.org>
+Received: from g9.gb126d70.use4.send.mailgun.net (g9.gb126d70.use4.send.mailgun.net. [204.220.169.9])
+        by mx.google.com with UTF8SMTPS id d75a77b69052e-50dd5a64dc1si39963271cf.260.2026.04.10.08.05.05
+        for <info@thevillagekidsclub.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 10 Apr 2026 08:05:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+401c89.f2270b-info=thevillagekidsclub.org@thevillagekidsclub.org designates 204.220.169.9 as permitted sender) client-ip=204.220.169.9;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@dkim1.omnisend.email header.s=omni1 header.b=FMWt3ElR;
+       dkim=pass header.i=@thevillagekidsclub.org header.s=smtp header.b="FhM/jOXj";
+       spf=pass (google.com: domain of bounce+401c89.f2270b-info=thevillagekidsclub.org@thevillagekidsclub.org designates 204.220.169.9 as permitted sender) smtp.mailfrom="bounce+401c89.f2270b-info=thevillagekidsclub.org@thevillagekidsclub.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=thevillagekidsclub.org
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=dkim1.omnisend.email; q=dns/txt; s=omni1; t=1775833505; x=1775840705;
+ h=Message-Id: List-Unsubscribe: List-Unsubscribe-Post: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender;
+ bh=76HpPbpnJd00UrwA75Fs9ncjP+p6BcBSskvHCdFeh1g=;
+ b=FMWt3ElRGzXXzeezM1MFe/SNBca5XnxiZPd2kX8qOV/TDfqyRUZKZfmb9e5SlYr3UgZfvkE1ljHp3ImQJICJq6mgUKhp3rNcGaSxARBz72U++VfjLDFyEX9EQxpSlGZsSLPbkS5B4yeRjRKYvESfdv7xTilAFRJa40STG7p6dah6dzfo0u5x8x4l3Q+m7GbBkE2xYW+pE2RnHlmprnem24TMZH6fxKezmN+Vn/4vKdcyBAEEZUZFR6sF9Ael+V7FoQsTMD1X/rTPMQ4BQw4/h85jJ+kQodeCbePnFDx/jP16k/ry4pqYONcAwLsGT1Z5ZsqAkUOy5qMtySq7Vlr0IA==
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=thevillagekidsclub.org; q=dns/txt; s=smtp; t=1775833505; x=1775840705;
+ h=Message-Id: List-Unsubscribe: List-Unsubscribe-Post: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender;
+ bh=76HpPbpnJd00UrwA75Fs9ncjP+p6BcBSskvHCdFeh1g=;
+ b=FhM/jOXjajuU5qr+k+Wz7lAnxFdMd6zKIFs6POU7BsIf7++XOxe+RMDcmRbdPPdhVJqcR3scx2UoFcEurUffnwPyUvFpgNRAc+6yde4JRPcdB7Erb1PcA35IdWdMb5tAASy5MXb8akaCvOl6BHrbqnqS9PCsOgtYeAWNHsNH+5w=
+X-Mailgun-Sid: WyI3Y2Q1YSIsImluZm9AdGhldmlsbGFnZWtpZHNjbHViLm9yZyIsImYyMjcwYiJd
+Received: by ed0c7148f4ef9032d1641fd05ee3dc6e3a85bb60241aadc76b9bf2f43630c957 with HTTP
+ id 69d911a17c5b0cbf830dcd39; Fri, 10 Apr 2026 15:05:04 GMT
+X-Mailgun-Sending-Ip-Pool-Name: BstS
+X-Mailgun-Sending-Ip-Pool: 665596289f43bfa346f3584f
+X-Mailgun-Sending-Ip: 204.220.169.9
+X-Mailgun-Batch-Id: 69d911a0f51869173a83b608
+Sender: info@thevillagekidsclub.org
+Date: Fri, 10 Apr 2026 15:05:04 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="f728f0708956a3200b97a082b14f3ecd498726601ec75d9e12ba3c708b47"
+Subject: =?UTF-8?q?=F0=9F=8C=B8_Spring_Camp_Starts_Monday!_Don=E2=80=99t_Miss_the_?=
+ =?UTF-8?q?Fun_+_Photo_Moment?=
+From: The Village Kids' Club <info@thevillagekidsclub.org>
+To: info@thevillagekidsclub.org
+X-Mailgun-Tag: secondary-dkim-signed
+X-Mailgun-Track: false
+X-Mailgun-Secondary-Dkim: dkim1.omnisend.email,omni1
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-Id: 69d7c23251b31e96a8485e44:657ca893a7b2f015dde724c5:campaign:omnisend
+List-Unsubscribe: <https://ebv.soundestlink.com/contactsPreferences/v2/unsubscribe/?b=657ca893a7b2f015dde724c5&c=6831134e581d76954a86e5b3&payload=PBM-OY2io0ehM8i4w9fugiQ-0Nf3gcDyRbgfiA6VCf64dDxrGCECVYI0FU7Pfbtq3DytQHhV-soEdYuAdlJ8rukVdEzzwslJfbi0m3tJPUr-wqN596gvlFvN1uh6gy487zmN&headerUnsub=true>
+X-Mailgun-Variables: {"brandID": "657ca893a7b2f015dde724c5", "contactID":
+ "6831134e581d76954a86e5b3", "progressID": "69d7dc94854a3eac456bff87"}
+Message-Id: <20260410150504.bdadfad669b120cb@thevillagekidsclub.org>
+
+--f728f0708956a3200b97a082b14f3ecd498726601ec75d9e12ba3c708b47
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Spots are filling fast=E2=80=94plus a special photo moment your child will =
+love =F0=9F=93=B8
+
+This email was sent to you as HTML-only. To view it, please visit:=20
+https://ebv.soundestlink.com/ce/v/6831134e581d76954a86e5b3/69d7dc94854a3eac=
+456bff87
+
+**************************
+
+Make sure you keep getting our latest offers and add info@thevillagekidsclu=
+b.org to your address book.
+
+Unsubscribe=20
+https://ebv.soundestlink.com/contactsPreferences/v2/unsubscribe/?b=3D657ca8=
+93a7b2f015dde724c5&c=3D6831134e581d76954a86e5b3&payload=3DPBM-OY2io0ehM8i4w=
+9fugiQ-0Nf3gcDyRbgfiA6VCf64dDxrGCECVYI0FU7Pfbtq3DytQHhV-soEdYuAdlJ8rukVdEzz=
+wslJfbi0m3tJPUr-wqN596gvlFvN1uh6gy487zmN
+
+Visit site
+https://www.thevillagekidsclub.org
+
+=C2=96
+
+--f728f0708956a3200b97a082b14f3ecd498726601ec75d9e12ba3c708b47
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head><!-- Used for outlook versions from 9 and greater -->
+<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPer=
+Inch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+<![endif]-->
+<title>=F0=9F=8C=B8 Spring Camp Starts Monday! Don=E2=80=99t Miss the Fun +=
+ Photo Moment </title>
+<meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Type"/>
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1" name=3D"viewport"=
+/>
+<meta content=3D"telephone=3Dno" name=3D"format-detection"/>
+<link rel=3D"icon" href=3D"data:,">
+<link rel=3D"stylesheet" type=3D"text/css" href=3D"https://fonts.soundestli=
+nk.com/fonts/css/Open+Sans"/>
+<style type=3D"text/css">
+html,body{width:100%!important;height:100%!important;margin:0 auto!importan=
+t;padding:0!important;-webkit-font-smoothing:antialiased;-webkit-text-size-=
+adjust:none;-ms-text-size-adjust:none;}body,table,td,a{-webkit-text-size-ad=
+just:100%;-ms-text-size-adjust:100%;}table{border-collapse:collapse;}table,=
+td{mso-table-lspace:0pt;mso-table-rspace:0pt;}th{font-weight:300;}img{-ms-i=
+nterpolation-mode:bicubic;}a[x-apple-data-detectors]{text-decoration:none!i=
+mportant;font-size:
+inherit!important;font-family:inherit!important;font-weight:inherit!importa=
+nt;line-height:inherit!important;color:inherit;}a:link,span.MsoHyperlink{te=
+xt-decoration:none;color:inherit;}u+#body a{text-decoration:none;font-size:=
+inherit;font-family:inherit;font-weight:inherit;line-height:inherit;color:i=
+nherit;}.appleFooterLinks a{text-decoration:none;color:inherit;}.desktop-wr=
+apper{display:table-cell;}.default-margin p{margin:0!important;}.centered-b=
+lock{display:block;margin:0 auto!important;}
+=2Emobile{display:none!important;}.side=
+-by-side{width:50%;max-width:50%;}.pro=
+duct-description-table th{mso-line-height-rule:exactly}.no-margin{margin:0;=
+}.margin-top{margin:4px 0 0 0;}p{word-spacing:normal;}
+@media screen and (max-width:600px){body{min-width:1px!important;}.desktop{=
+display:none!important;}.mobile{display:table!important;}.mobile-body-conta=
+iner{min-width:1px!important;}.mobile-container{width:100%!important;displa=
+y:table!important;}.mobile-container-half{width:50%!important;display:inlin=
+e-block!important;}.mobile-image{width:100%!important;height:auto!important=
+;}.mobile-bounded-image{max-width:100%!important;width:auto!important;heigh=
+t:auto!important;}.mobile-image-stacked{max-width:
+100%!important;max-height:552px!important;width:auto!important;}.mobile-ima=
+ge-stacked-height{height:auto!important;}.mobile-table{width:100%!important=
+;}.padding-left{padding-left:12px!important;}.padding-right{padding-right:1=
+2px!important;}.padding-top{padding-top:12px!important;}.padding-bottom{pad=
+ding-bottom:12px!important;}.mobile-hidden{display:none!important;}.placeho=
+lder-image-block-table-cell{height:150px!important;}/* STARTS Order confirm=
+ation */ .order-product-table-responsive-cell{
+display:block!important;width:100%;}.order-product-image-responsive-element=
+{width:80px!important;height:auto;}.placeholder-image-block-table-cell.orde=
+r-product-image-responsive-element{height:80px!important;}/* ENDS Order con=
+firmation */ /* STARTS Order billing & shipping */ .order-billing-and-shipp=
+ing-responsive-cell{display:table-row!important;}/* ENDS Order billing & sh=
+ipping */ .desktop-wrapper{display:inline-block!important;} }
+@media screen and (max-width:480px){.stack-column{display:block!important;w=
+idth:100%!important;min-width:100%!important;direction:ltr!important;paddin=
+g:12px 0px!important;box-sizing:border-box;} }
+@media screen and (max-width:600px){.n2-col-image-height{height:276px!impor=
+tant;}.n2-col-image-max-height{max-height:276px!important;} }
+@media screen and (max-width:480px){.n2-col-image-height{height:216px!impor=
+tant;}.n2-col-image-max-height{max-height:216px!important;} }
+@media screen and (max-width:425px){.n2-col-image-height{height:188.5px!imp=
+ortant;}.n2-col-image-max-height{max-height:188.5px!important;} }
+@media screen and (max-width:375px){.n2-col-image-height{height:163.5px!imp=
+ortant;}.n2-col-image-max-height{max-height:163.5px!important;} }
+@media screen and (max-width:320px){.n2-col-image-height{height:136px!impor=
+tant;}.n2-col-image-max-height{max-height:136px!important;} }
+</style>
+</head>
+<body id=3D"body"
+style=3D"padding:0px;margin:0px"><p
+style=3D"max-height:0;font-size:0;line-height:0;margin:0;overflow:hidden;">=
+ Spots are filling fast=E2=80=94plus a special photo moment your child will=
+ love =F0=9F=93=B8 </p><div
+style=3D"display:none;width:0px;height:0px;max-height:0px;overflow:hidden;"=
+> &#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy;
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; </div><p
+style=3D"max-height:0;font-size:0;line-height:0;margin:0;overflow:hidden;">=
+ <img alt=3D"" border=3D"0" src=3D"https://ebv.soundestlink.com/ce/o/683113=
+4e581d76954a86e5b3/69d7dc94854a3eac456bff87?signature=3D7b9f6870ab0ba34b738=
+58d0f22a40327337cc57a45ae79fb3cd1932f3dfe7480" width=3D"1" height=3D"1"/></=
+p>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"
+      height=3D"100%"
+style=3D"background-color:#CECBEC;" class=3D"mobile-body-container"><tr><td=
+>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"
+style=3D"min-width:290px"><tr><td>
+<table width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center"
+style=3D"width:600px;margin:0px auto;background-color:#FFFFFF;" class=3D"mo=
+bile-container"><tr><td>
+<table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td>
+<table id=3D"623c58a650e7cfa84547dcf7" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td background=3D""
+style=3D"padding-left:0px;padding-right:0px;padding-top:1px;padding-bottom:=
+0px;background-repeat:no-repeat;background-size:cover;background-position:u=
+nset;background-color:#FFFFFF;">
+<table id=3D"623c58a650e7cfa84547dcf8" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"623c58a650e7cfa84547dcf9" class=3D"mobil=
+e-container"
+style=3D"width:600px;vertical-align:top;">
+<table id=3D"69bb000ddeb14b68b772f917" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"600" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"69bb000dd=
+eb14b68b772f917" href=3D"https://tce.soundestlink.com/ce/c/6831134e581d7695=
+4a86e5b3/69d7dc94854a3eac456bff87/69d9107adf56b74c130d5dfa?signature=3D7b9f=
+6870ab0ba34b73858d0f22a40327337cc57a45ae79fb3cd1932f3dfe7480"><img alt=3D""
+                                 class=3D"mobile-image centered-block"width=
+=3D"576"=20
+                                    height=3D"576"border=3D"0"src=3D"https:=
+//ebv.soundestlink.com/image/newsletter/69d7c38a5a18c9e3e0a30d40"
+style=3D"max-width:576px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#6F295A;line-height:150%;width:576px;"></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69864a5c13d9a285d32be1ad" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#FFFFFF;">
+<table id=3D"69864a5c13d9a285d32be1ae" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69864a5c13d9a285d32be1af" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;">
+<table id=3D"68de14470c5c2d109e42c65f" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"left"
+style=3D"color:#FDE4AA;font-family:Arial,sans-serif;font-size:36px;line-hei=
+ght:1.25;mso-line-height-alt:125%;padding-top:10px;padding-right:10px;paddi=
+ng-bottom:0px;padding-left:10px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"text-align:left;margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:rgb(0,0,0);font-style:normal;font-weight:400;text-align:cent=
+er;" id=3D"isPasted"><span
+style=3D"font-size:25px;"><strong>Hello Alex Nelson</strong></span></span><=
+/p>
+</td></tr></table>
+<table id=3D"690284a1b7ce3376223d08ad" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"left"
+style=3D"color:#000;font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sa=
+ns-serif;font-size:15px;line-height:1.5;mso-line-height-alt:150%;padding-to=
+p:12px;padding-right:12px;padding-bottom:0px;padding-left:12px;" bgcolor=3D=
+"" class=3D"mobile-table"><p
+style=3D"margin-top:0px;margin-bottom:0px;">Spring at the Village is a time=
+ we always look forward to=E2=80=94when learning feels alive, creativity fl=
+ows naturally, and children are invited to explore the world around them in=
+ meaningful ways.</p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;">With Spring Break just days awa=
+y, we=E2=80=99re excited to welcome a new group of campers for a truly spec=
+ial week.</p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;">=F0=9F=8C=B8 <strong>Spring Spe=
+ctacular Mash-Up Camp | April 13=E2=80=9317</strong></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;">This thoughtfully designed expe=
+rience invites children to step into <strong>five different worlds in five =
+days</strong>=E2=80=94each one filled with hands-on discovery, creativity, =
+and joyful learning.</p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;">=F0=9F=94=AC Science Quest<br>=
+=F0=9F=8D=93 Junior Chef Academy<br>=F0=9F=8C=B3 Alameda Explorers<br>=F0=
+=9F=9B=A0=EF=B8=8F Crazy Contraptions<br>=F0=9F=93=9A Author=E2=80=99s Stud=
+io</p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;">From experimenting and building=
+ to exploring and storytelling, each day offers something new=E2=80=94desig=
+ned to spark curiosity and build confidence in every child.</p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC" href=3D"https://tce.soundestlink.com/ce/c/6831134e5=
+81d76954a86e5b3/69d7dc94854a3eac456bff87/69d9107bdf56b74c130d5dfb?signature=
+=3D7b9f6870ab0ba34b73858d0f22a40327337cc57a45ae79fb3cd1932f3dfe7480" target=
+=3D"_blank"><strong>Reserve your child=E2=80=99s spot here!&nbsp;</strong><=
+/a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p>
+</td></tr></table>
+<table id=3D"69d7c69c2d17c743313de2d2" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#6F295A;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px;" bgcolo=
+r=3D"" class=3D"mobile-table"><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;">=F0=9F=93=B8<strong>&nbsp;A Small Moment to Rememb=
+er</strong></span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;"><br></span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;">We=E2=80=99re adding something extra special to Sp=
+ring Camp this week=E2=80=A6</span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;"><br></span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;">During check-in, families are invited to take a ph=
+oto at our <strong>Spring Photo Corner</strong>=E2=80=94a fun way to captur=
+e your child=E2=80=99s first day and share the experience with our Village =
+community.</span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;"><br></span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;">=E2=9C=A8 As a special treat, the <strong>first 10=
+ families who post and tag us</strong> will receive a small surprise=E2=80=
+=94given on Friday =F0=9F=92=9B</span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#383838"></a><a
+style=3D"color:#383838"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#383838"></a><a
+style=3D"color:#383838"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#383838"></a><a
+style=3D"color:#383838"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#383838"></a><a
+style=3D"color:#383838"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p>
+</td></tr></table>
+<table id=3D"69d7c6ef2d17c743313de2d3" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"552" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><img alt=3D""
+                                 class=3D"mobile-image centered-block"width=
+=3D"528"=20
+                                    height=3D"747"border=3D"0"src=3D"https:=
+//ebv.soundestlink.com/image/newsletter/69d7c7e19dc20b9a992704fd"
+style=3D"max-width:528px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#6F295A;line-height:150%;width:528px;">
+</td></tr></table>
+</td></tr></table><!--Line/space content block starts -->
+<table id=3D"69d7c8142d17c743313de2d4" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"29%"><tr><=
+td
+style=3D"font-size:0;line-height:0;border-top:2px solid #000000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"68e7f596e9e96a58d870dd94" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top" backgro=
+und=3D""
+style=3D"padding-left:15px;padding-right:25px;padding-top:15px;padding-bott=
+om:10px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#006da7;">
+<table id=3D"68e7f596e9e96a58d870dd95" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"68e7f596e9e96a58d870dd96" class=3D"mobil=
+e-container"
+style=3D"width:560px;vertical-align:top;">
+<table id=3D"68e7f596e9e96a58d870dd97" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#FFFFFF;font-family:Arial,sans-serif;font-size:24px;line-hei=
+ght:1.25;mso-line-height-alt:125%;padding-top:0px;padding-right:0px;padding=
+-bottom:0px;padding-left:0px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin-top:0px;margin-bottom:0px;"><strong
+style=3D"color:rgb(255,255,255);font-size:24px;font-style:normal;text-align=
+:-webkit-center;">Quantum Quest Field Trips!</strong></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69864ab513d9a285d32be1b3" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top" backgro=
+und=3D""
+style=3D"padding-left:15px;padding-right:25px;padding-top:15px;padding-bott=
+om:10px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#F5cf12;">
+<table id=3D"69864ab513d9a285d32be1b4" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69864ab513d9a285d32be1b5" class=3D"mobil=
+e-container"
+style=3D"width:560px;vertical-align:top;">
+<table id=3D"69a5e56ae1934aedd899ccb1" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"560" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"69a5e56ae=
+1934aedd899ccb1" href=3D"https://tce.soundestlink.com/ce/c/6831134e581d7695=
+4a86e5b3/69d7dc94854a3eac456bff87/69d9107bdf56b74c130d5dfe?signature=3D7b9f=
+6870ab0ba34b73858d0f22a40327337cc57a45ae79fb3cd1932f3dfe7480"><img alt=3D""
+                                 class=3D"mobile-image centered-block"width=
+=3D"536"=20
+                                    height=3D"402"border=3D"0"src=3D"https:=
+//ebv.soundestlink.com/image/newsletter/69d7d6309dc20b9a9927072c"
+style=3D"max-width:536px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#6F295A;line-height:150%;width:536px;"></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69864a1d13d9a285d32be1a1" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:0px;padding-botto=
+m:0px;background-repeat:no-repeat;background-size:cover;background-position=
+:unset;background-color:#F9F4ED;">
+<table id=3D"69864a1d13d9a285d32be1a2" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69864a1d13d9a285d32be1a3" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;">
+<table id=3D"697695fd8cf474186ad14d38" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#6F295A;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:15px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:0px;padding-left:12px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;">In our <strong>Quantum Quest After School Program<=
+/strong>, San Francisco becomes our classroom.</span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;"><strong>Our latest adventure brought students to t=
+he floating San Francisco Fireboat Station No. 35=E2=80=94where learning ca=
+me to life beyond the classroom.</strong> From observing real-world operati=
+ons to asking thoughtful questions and making meaningful connections, every=
+ moment was filled with curiosity and discovery.</span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;">Do your kids enjoy exploring, navigating the city,=
+ and learning through real experiences?</span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;">If so, we=E2=80=99d love to welcome your family to=
+ the Village.</span></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:#383838;">We are currently preparing for the <strong>2026=E2=
+=80=932027 school year</strong>, and with limited spots available, we invit=
+e you to join our next info session on April 22 or reach out to schedule a =
+private tour.</span></p><p
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69a4eeb3779a3f03da9d3e3b" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-bottom" back=
+ground=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:0px;padding-botto=
+m:24px;background-repeat:no-repeat;background-size:cover;background-positio=
+n:unset;background-color:#F9F4ED;">
+<table id=3D"69a4eeb3779a3f03da9d3e3c" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69a4eeb3779a3f03da9d3e3d" class=3D"mobil=
+e-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"69a4ee14779a3f03da9d3e39" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#6F295A;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:15px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:0px;padding-left:12px;" bgcolor=
+=3D"" class=3D"mobile-table"><p id=3D"isPasted"
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><span
+style=3D"font-size:11pt;color:#000000;font-weight:400;font-style:normal;tex=
+t-decoration:none;" id=3D"isPasted"><span
+style=3D"font-size:11pt;color:#000000;font-weight:400;font-style:normal;tex=
+t-decoration:none;">If you=E2=80=99re <strong>considering joining us for th=
+e 2026=E2=80=932027 school year</strong>, registration is now open</span></=
+span><span
+style=3D"font-size:11pt;color:#000000;font-weight:400;font-style:normal;tex=
+t-decoration:none;"><span
+style=3D"font-size:11pt;color:#000000;font-weight:400;font-style:normal;tex=
+t-decoration:none;" id=3D"isPasted"><br id=3D"isPasted"><br></span></span><=
+/p>
+</td></tr></table>
+<table id=3D"69865bf2c737c0da3e0741d5" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:5px;padding-right:12px;padding-bottom:5px;padding-left=
+:12px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#FFDF00;border:2px solid #000000;border-radius:28=
+px;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Arial,sans-serif;font-size:16px;font-weight:bold;font-=
+style:normal;text-decoration:none;color:#000000;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Arial,sans-serif;font-size:16px;font-weight:bold;font-=
+style:normal;text-decoration:none;color:#000000;padding-left:16px;padding-r=
+ight:16px;padding-top:15px;padding-bottom:16px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"69865bf2c737c0da3e0741d5" =
+href=3D"https://tce.soundestlink.com/ce/c/6831134e581d76954a86e5b3/69d7dc94=
+854a3eac456bff87/69d9107bdf56b74c130d5e00?signature=3D7b9f6870ab0ba34b73858=
+d0f22a40327337cc57a45ae79fb3cd1932f3dfe7480"
+style=3D"text-decoration:none;padding-left:16px;padding-right:16px;padding-=
+top:15px;padding-bottom:16px;;display:inline-block;font-family:Arial,sans-s=
+erif;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none=
+;color:#000000;line-height:1.2;"> Learn More </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td><td id=3D"69a4eeb3779a3f03da9d3e3e" class=3D"mobile-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"69a4eec2779a3f03da9d3e43" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#6F295A;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:15px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:0px;padding-left:12px;" bgcolor=
+=3D"" class=3D"mobile-table"><p id=3D"isPasted"
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><span
+style=3D"font-size:11pt;color:#000000;font-weight:400;font-style:normal;tex=
+t-decoration:none;"><span
+style=3D"font-size:11pt;color:#000000;font-weight:400;font-style:normal;tex=
+t-decoration:none;" id=3D"isPasted">If <strong>visiting the space</strong> =
+would be helpful, you=E2=80=99re welcome to book a time that works for you:=
+<br id=3D"isPasted"><br></span></span></p>
+</td></tr></table>
+<table id=3D"69a4ee2a779a3f03da9d3e3a" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:5px;padding-right:12px;padding-bottom:5px;padding-left=
+:12px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#EC4C4B;border:4px solid #FFFFFF;border-radius:28=
+px;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Arial,sans-serif;font-size:16px;color:#FFFFFF;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Arial,sans-serif;font-size:16px;color:#FFFFFF;padding-=
+left:16px;padding-right:16px;padding-top:15px;padding-bottom:16px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"69a4ee2a779a3f03da9d3e3a" =
+href=3D"https://tce.soundestlink.com/ce/c/6831134e581d76954a86e5b3/69d7dc94=
+854a3eac456bff87/69d9107bdf56b74c130d5e04?signature=3D7b9f6870ab0ba34b73858=
+d0f22a40327337cc57a45ae79fb3cd1932f3dfe7480"
+style=3D"text-decoration:none;padding-left:16px;padding-right:16px;padding-=
+top:15px;padding-bottom:16px;;display:inline-block;font-family:Arial,sans-s=
+erif;font-size:16px;color:#FFFFFF;line-height:1.2;"> Join Our Next Info Ses=
+sion - March 25 </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69d7d9936d2d395f67f7fe5b" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top" backgro=
+und=3D""
+style=3D"padding-left:15px;padding-right:25px;padding-top:15px;padding-bott=
+om:10px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#796371;">
+<table id=3D"69d7d9936d2d395f67f7fe5c" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69d7d9936d2d395f67f7fe5d" class=3D"mobil=
+e-container"
+style=3D"width:560px;vertical-align:top;">
+<table id=3D"69d7d9936d2d395f67f7fe5e" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#FFFFFF;font-family:Arial,sans-serif;font-size:24px;line-hei=
+ght:1.25;mso-line-height-alt:125%;padding-top:0px;padding-right:0px;padding=
+-bottom:0px;padding-left:0px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin-top:0px;margin-bottom:0px;"><strong
+style=3D"color:rgb(255,255,255);font-size:24px;font-style:normal;text-align=
+:-webkit-center">Summer Field Trip Camp</strong></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69d7d9eb6d2d395f67f7fe60" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:0px;padding-botto=
+m:0px;background-repeat:no-repeat;background-size:cover;background-position=
+:unset;background-color:#F9F4ED;">
+<table id=3D"69d7d9eb6d2d395f67f7fe61" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69d7d9eb6d2d395f67f7fe62" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;">
+<table id=3D"69d7d9eb6d2d395f67f7fe63" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#6F295A;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:15px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:0px;padding-left:12px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"color:rgb(0,0,0);font-size:15px;font-style:normal;font-weight:400;=
+text-align:-webkit-center;margin-top:0px;margin-bottom:0px;">If you=E2=80=
+=99re not able to join our after-school program but still want your child t=
+o experience meaningful, engaging field trips, we offer two wonderful summe=
+r options:</p><p
+style=3D"color:rgb(0,0,0);font-size:15px;font-style:normal;font-weight:400;=
+text-align:-webkit-center;margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"color:rgb(0,0,0);font-size:15px;font-style:normal;font-weight:400;=
+text-align:-webkit-center;margin-top:0px;margin-bottom:0px;"><strong>Secret=
+s of Alameda</strong><br>A week of walking field trips around our beautiful=
+ town. Children come away with a deeper understanding of Alameda and the wo=
+rld around them.</p><p
+style=3D"color:rgb(0,0,0);font-size:15px;font-style:normal;font-weight:400;=
+text-align:-webkit-center;margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"color:rgb(0,0,0);font-size:15px;font-style:normal;font-weight:400;=
+text-align:-webkit-center;margin-top:0px;margin-bottom:0px;"><strong>San Fr=
+ancisco Mosaic</strong><br>For rising 3rd graders and up, this week feature=
+s daily field trips into San Francisco, led by SF native and our director, =
+Sogolon Best.</p><p
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69d7dab16d2d395f67f7fe66" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;">
+<table id=3D"69d7dab16d2d395f67f7fe67" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69d7dab16d2d395f67f7fe68" class=3D"mobil=
+e-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"69d7dab86d2d395f67f7fe6e" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><img alt=3D""
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"252"border=3D"0"src=3D"https:=
+//ebv.soundestlink.com/image/newsletter/69d7db2e61658b40a74f6770"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#6F295A;line-height:150%;width:252px;">
+</td></tr></table>
+</td></tr></table>
+</td><td id=3D"69d7dab16d2d395f67f7fe69" class=3D"mobile-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"69d7dabc6d2d395f67f7fe6f" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><img alt=3D""
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"252"border=3D"0"src=3D"https:=
+//ebv.soundestlink.com/image/newsletter/69d7db3061658b40a74f6777"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#6F295A;line-height:150%;width:252px;">
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69c56dd6614fbcfba0b4c496" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top" backgro=
+und=3D""
+style=3D"padding-left:15px;padding-right:25px;padding-top:15px;padding-bott=
+om:10px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#C0423F;">
+<table id=3D"69c56dd6614fbcfba0b4c497" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69c56dd6614fbcfba0b4c498" class=3D"mobil=
+e-container"
+style=3D"width:560px;vertical-align:top;">
+<table id=3D"69c56dd6614fbcfba0b4c499" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#FFFFFF;font-family:Arial,sans-serif;font-size:24px;line-hei=
+ght:1.25;mso-line-height-alt:125%;padding-top:0px;padding-right:0px;padding=
+-bottom:0px;padding-left:0px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin-top:0px;margin-bottom:0px;"><strong>=F0=9F=8E=82 Celebrate =
+Special Moments at VKC</strong></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69ce7c4005dc97ebfb10a784" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-top padding-bottom" background=3D""
+style=3D"padding-left:10px;padding-right:10px;padding-top:24px;padding-bott=
+om:24px;">
+<table id=3D"69ce7c4005dc97ebfb10a785" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"background-repeat:no-repeat;background-size:cover;background-posit=
+ion:unset;background-color:#EC4C4B;"><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69ce7c4005dc97ebfb10a786" class=3D"mobil=
+e-container"
+style=3D"width:580px;vertical-align:top;">
+<table id=3D"69ce7c9e05dc97ebfb10a78e" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"580" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><img alt=3D""
+                                 class=3D"mobile-image"width=3D"528"=20
+                                    height=3D"352"border=3D"0"src=3D"https:=
+//ebv.soundestlink.com/image/newsletter/69ce7c755a18c9e3e0a2549e"
+style=3D"max-width:528px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#6F295A;line-height:150%;width:528px;">
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69c56df9614fbcfba0b4c49a" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:0px;padding-botto=
+m:0px;background-repeat:no-repeat;background-size:cover;background-position=
+:unset;background-color:#F9F4ED;">
+<table id=3D"69c56df9614fbcfba0b4c49b" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69c56df9614fbcfba0b4c49c" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;">
+<table id=3D"69c56df9614fbcfba0b4c49d" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#000;font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sa=
+ns-serif;font-size:15px;line-height:1.5;mso-line-height-alt:150%;padding-to=
+p:12px;padding-right:12px;padding-bottom:0px;padding-left:12px;" bgcolor=3D=
+"" class=3D"mobile-table"><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;">There=E2=80=99s something speci=
+al happening at the Village this week=E2=80=94we=E2=80=99re preparing for <=
+strong>two upcoming birthday celebrations</strong>, and the excitement is a=
+lready building! =F0=9F=8E=89</p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;">From creative themes to hands-o=
+n activities, our parties are designed to be joyful, engaging, and unforget=
+table for every child.</p><p
+style=3D"margin-top:0px;margin-bottom:0px;">If you=E2=80=99re looking for a=
+ meaningful and fun way to celebrate, we=E2=80=99d love to welcome your fam=
+ily.</p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><strong>Choose your package, re=
+serve your date, and let=E2=80=99s celebrate together.</strong> =F0=9F=8E=
+=89</p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><br></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"69ce7ccf05dc97ebfb10a78f" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;">
+<table id=3D"69ce7ccf05dc97ebfb10a790" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"69ce7ccf05dc97ebfb10a791" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;">
+<table id=3D"69ce7cd405dc97ebfb10a795" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:5px;padding-right:5px;padding-bottom:5px;padding-left:=
+5px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#FFFFFF;border:4px solid #EC4C4B;border-radius:28=
+px;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Arial,sans-serif;font-size:16px;font-weight:bold;color=
+:#e133ce;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Arial,sans-serif;font-size:16px;font-weight:bold;color=
+:#e133ce;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:=
+5px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"69ce7cd405dc97ebfb10a795" =
+href=3D"https://tce.soundestlink.com/ce/c/6831134e581d76954a86e5b3/69d7dc94=
+854a3eac456bff87/69d9107bdf56b74c130d5e05?signature=3D7b9f6870ab0ba34b73858=
+d0f22a40327337cc57a45ae79fb3cd1932f3dfe7480"
+style=3D"text-decoration:none;padding-left:5px;padding-right:5px;padding-to=
+p:5px;padding-bottom:5px;;display:inline-block;font-family:Arial,sans-serif=
+;font-size:16px;font-weight:bold;color:#e133ce;line-height:1.2;"> Birthday =
+Party Packages </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"68e7f164812766501c0674e0" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-top padding-bottom" background=3D""
+style=3D"padding-left:0px;padding-right:0px;padding-top:20px;padding-bottom=
+:15px;background-repeat:no-repeat;background-size:cover;background-position=
+:unset;background-color:#FFFFFF;">
+<table id=3D"68e7f164812766501c0674e1" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"68e7f164812766501c0674e2" class=3D"mobil=
+e-container"
+style=3D"width:600px;vertical-align:top;"><!--Line/space content block star=
+ts -->
+<table id=3D"69682453f5304ddb4312a0b4" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"22%"><tr><=
+td
+style=3D"font-size:0;line-height:0;border-top:2px solid #000000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"696820fed0af0fe1f985a145" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-top padding-bottom" background=3D""
+style=3D"padding-left:0px;padding-right:0px;padding-top:20px;padding-bottom=
+:15px;background-repeat:no-repeat;background-size:cover;background-position=
+:unset;background-color:#FFFFFF;">
+<table id=3D"696820fed0af0fe1f985a146" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"696820fed0af0fe1f985a147" class=3D"mobil=
+e-container"
+style=3D"width:600px;vertical-align:top;">
+<table id=3D"696820fed0af0fe1f985a149" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#000000;font-family:Arial,sans-serif;font-size:16px;line-hei=
+ght:1.25;mso-line-height-alt:125%;padding-top:12px;padding-right:12px;paddi=
+ng-bottom:12px;padding-left:12px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin-top:0px;margin-bottom:0px;"><strong>Whether you&#39;re plan=
+ning a birthday celebration, a meaningful Spring Break experience, or getti=
+ng ready for the next school year, we=E2=80=99d love to welcome your family=
+ to the Village.</strong></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p><p
+style=3D"margin-top:0px;margin-bottom:0px;"><a
+style=3D"color:#0076BC"></a><a
+style=3D"color:#0076BC"></a></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"68de039220fe61a1ac054366" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#201f4a;">
+<table id=3D"68de039220fe61a1ac054367" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"68de039220fe61a1ac054368" class=3D"mobil=
+e-container"
+style=3D"width:368px;vertical-align:top;">
+<table id=3D"68de02d170ccd1c37b1cd9c1" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"left"
+style=3D"color:#6F295A;font-family:Arial,sans-serif;font-size:11px;line-hei=
+ght:1.25;mso-line-height-alt:125%;padding-top:12px;padding-right:12px;paddi=
+ng-bottom:12px;padding-left:12px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"text-align:left;margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:rgb(255,255,255);font-size:16px;font-style:normal;font-weigh=
+t:700;text-align:center;" id=3D"isPasted"><span
+style=3D"font-style:normal;font-weight:400;text-align:center;" id=3D"isPast=
+ed">Warm Regards,</span></span></p><p
+style=3D"text-align:left;margin-top:0px;margin-bottom:0px;"><span id=3D"isP=
+asted"><span id=3D"isPasted"><span
+style=3D"color:rgb(255,255,255);font-size:26px;font-style:normal;font-weigh=
+t:400;text-align:left;" id=3D"isPasted">Sogolon &amp; the VKC Team</span></=
+span></span></p>
+</td></tr></table>
+</td><td id=3D"68de039220fe61a1ac054369" class=3D"mobile-container"
+style=3D"width:184px;vertical-align:top;">
+<table id=3D"68de032170ccd1c37b1cd9c2" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"184" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"right"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:right;"><img alt=3D""
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"160"=20
+                                    height=3D"160"border=3D"0"src=3D"https:=
+//ebv.soundestlink.com/image/newsletter/68de035679dd001749a2e14c"
+style=3D"max-width:160px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#6F295A;line-height:150%;width:160px;">
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"690c37c2508d4183fd0c26d7" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:0px;padding-botto=
+m:0px;background-repeat:no-repeat;background-size:cover;background-position=
+:unset;background-color:#F9F5E0;">
+<table id=3D"690c37c2508d4183fd0c26d8" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"690c37c2508d4183fd0c26d9" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;">
+<table id=3D"697692078cf474186ad14d36" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"552" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"697692078=
+cf474186ad14d36" href=3D"https://tce.soundestlink.com/ce/c/6831134e581d7695=
+4a86e5b3/69d7dc94854a3eac456bff87/69d9107bdf56b74c130d5e07?signature=3D7b9f=
+6870ab0ba34b73858d0f22a40327337cc57a45ae79fb3cd1932f3dfe7480"><img alt=3D"S=
+ki Week Camp | The Village Kids Club"
+                                 class=3D"mobile-image centered-block"width=
+=3D"528"=20
+                                    height=3D"474"border=3D"0"src=3D"https:=
+//ebv.soundestlink.com/image/newsletter/69a4ebdd6348748ff6374a26"
+style=3D"max-width:528px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#6F295A;line-height:150%;width:528px;"></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"68deaba4e56135b0e10d6bbb" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:12px;padding-bott=
+om:12px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#201f4a;">
+<table id=3D"68deaba4e56135b0e10d6bbc" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"68deaba4e56135b0e10d6bbd" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;">
+<table id=3D"68deaba4e56135b0e10d6bbe" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#000000;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:12px;line-height:1.5;mso-line-height-alt:150%;padding=
+:12px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"text-align:center;margin:0px;"><a
+style=3D"color:#0076BC" href=3D"https://ebv.soundestlink.com/contactsPrefer=
+ences/v2/?b=3D657ca893a7b2f015dde724c5&c=3D6831134e581d76954a86e5b3&payload=
+=3D-EMjfpcKnL21lhC490HaZ91Xm1nSNuKaX7aqbJMMnwQknc0GE_vb5KH3fNSIpn0dro2fJgXB=
+DVHuyN7LldAqGZGkJxO3myuhu4y8LdTk1SIMdNwuTUPIpopOyP2bcuYOzNIy" data-translat=
+ion-key=3D"preference" target=3D"_blank">Edit preferences</a> or <a
+style=3D"color:#0076BC" href=3D"https://ebv.soundestlink.com/contactsPrefer=
+ences/v2/unsubscribe/?b=3D657ca893a7b2f015dde724c5&c=3D6831134e581d76954a86=
+e5b3&payload=3DPBM-OY2io0ehM8i4w9fugiQ-0Nf3gcDyRbgfiA6VCf64dDxrGCECVYI0FU7P=
+fbtq3DytQHhV-soEdYuAdlJ8rukVdEzzwslJfbi0m3tJPUr-wqN596gvlFvN1uh6gy487zmN" d=
+ata-translation-key=3D"unsubscribe" target=3D"_blank">Unsubscribe</a></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</body>
+</html>
+--f728f0708956a3200b97a082b14f3ecd498726601ec75d9e12ba3c708b47--

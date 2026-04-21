@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DigitalEduPro | Virtual Operations Support</title>
+    <meta
+      name="description"
+      content="DigitalEduPro provides virtual operations, creative, marketing, automation, HR, and client support for growing businesses."
+    />
+    <link rel="preload" href="styles.css?v=20260420-footer-glass-ui" as="style" />
+    <link rel="stylesheet" href="styles.css?v=20260420-footer-glass-ui" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="DigitalEduPro home">
+        <img
+          src="site-assets/logo-transparent.png"
+          alt="DigitalEduPro logo"
+          width="883"
+          height="883"
+        />
+        <span>DigitalEduPro</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#tools">Tools</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <button
+      class="section-scroll-arrow"
+      id="sectionScrollArrow"
+      type="button"
+      aria-label="Scroll down"
+    >
+      <span class="section-scroll-arrow-icon" aria-hidden="true"></span>
+      <span class="section-scroll-arrow-text">Next</span>
+    </button>
+
+    <main id="main">
+      <section id="home" class="hero" aria-labelledby="hero-title">
+        <video
+          class="hero-bg"
+          src="DigitalEduPro_Profile/AboutUs/DigitalEduPro_Intro.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+        ></video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <img
+            class="hero-logo"
+            src="site-assets/logo-transparent.png"
+            alt="DigitalEduPro Logo"
+            width="883"
+            height="883"
+          />
+          <h1 id="hero-title">DigitalEduPro</h1>
+          <p>
+            Your reliable partner in growing smarter, working better, and achieving more.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#services">Discover Our Services</a>
+            <a class="button secondary" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about-section" aria-labelledby="about-title">
+        <div class="section-heading center wide">
+          <h2 id="about-title">About DigitalEduPro</h2>
+          <p>
+            We understand that running a business today can feel overwhelming. There are so many
+            moving parts: data to manage, clients to support, content to create, systems to
+            maintain, and not always enough time or resources to do it all.
+          </p>
+          <p>
+            That's where we come in. We are more than just a virtual support team. We are your
+            dedicated partner.
+          </p>
+        </div>
+        <div class="mission-grid">
+          <article>
+            <span class="about-icon target" aria-hidden="true"></span>
+            <h3>Our Mission</h3>
+            <p>
+              To empower businesses with reliable, innovative, and high-quality virtual support
+              that simplifies operations and drives real results.
+            </p>
+          </article>
+          <article>
+            <span class="about-icon eye" aria-hidden="true"></span>
+            <h3>Our Vision</h3>
+            <p>
+              To become a trusted global partner for businesses seeking efficiency, creativity,
+              and digital transformation while building meaningful, long-term relationships.
+            </p>
+          </article>
+          <article>
+            <span class="about-icon heart" aria-hidden="true"></span>
+            <h3>Why Choose Us?</h3>
+            <p>
+              Because we genuinely care. We take the time to understand your goals, challenges,
+              and vision. We add value, bring ideas, and support your growth every step of the
+              way.
+            </p>
+          </article>
+        </div>
+        <div class="partner-strip" aria-labelledby="partner-title">
+          <div>
+            <p class="eyebrow">You Gain a Trusted Partner</p>
+            <h3 id="partner-title">Support that listens, adapts, and grows with you.</h3>
+          </div>
+          <ul>
+            <li>A dependable and proactive team</li>
+            <li>Flexible and scalable support</li>
+            <li>A partner who listens and understands</li>
+            <li>Solutions tailored to your business</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="services" class="services-section" aria-labelledby="services-title">
+        <div class="section-heading center">
+          <h2 id="services-title">Our Services</h2>
+          <p>Comprehensive virtual support solutions designed to help your business thrive.</p>
+        </div>
+        <div class="service-showcase" aria-label="DigitalEduPro service showcase">
+          <div class="service-showcase-copy">
+            <p class="eyebrow">Service Showcase</p>
+            <h3>Virtual support made clear, organized, and ready for growth.</h3>
+            <p>
+              From daily operations to client support, every service is built to make
+              your work lighter and more organized.
+            </p>
+          </div>
+          <div class="service-visual-grid" id="serviceVisualGrid"></div>
+        </div>
+        <div class="service-grid" id="serviceGrid"></div>
+      </section>
+
+      <section id="portfolio" class="portfolio-section" aria-labelledby="portfolio-title">
+        <div class="section-heading center">
+          <h2 id="portfolio-title">Our Portfolio</h2>
+          <p>Real results for real businesses. See how we've helped our clients achieve their goals.</p>
+        </div>
+        <div class="portfolio-library" id="portfolioLibrary"></div>
+        <div class="portfolio-cta">
+          <h3>Ready to see what we can do for your business?</h3>
+          <a class="button primary" href="#contact">Let's Work Together</a>
+        </div>
+      </section>
+
+      <section id="tools" class="tools-section" aria-labelledby="tools-title">
+        <div class="section-heading center">
+          <h2 id="tools-title">Tools & Platforms</h2>
+          <p>A rotating view of the platforms we use for creative, operations, data, AI, and automation work.</p>
+        </div>
+        <div class="tools-grid" id="toolsGrid"></div>
+      </section>
+
+      <section id="team" class="team-section" aria-labelledby="team-title">
+        <div class="section-heading center">
+          <h2 id="team-title">Meet Our Team</h2>
+          <p>Dedicated professionals committed to your success</p>
+        </div>
+        <div class="team-grid" id="teamGrid"></div>
+      </section>
+
+      <section id="contact" class="contact-section" aria-labelledby="contact-title">
+        <div class="section-heading center wide">
+          <h2 id="contact-title">Let's Connect</h2>
+          <p>Ready to grow together? Get in touch and let's discuss how we can help your business thrive.</p>
+        </div>
+        <div class="contact-layout">
+          <form
+            class="contact-form"
+            id="contactForm"
+            action="mailto:samvirtualops@gmail.com?subject=DigitalEduPro%20Inquiry"
+            method="post"
+            enctype="text/plain"
+          >
+            <h3>Send Us a Message</h3>
+            <label>
+              Your Name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Your Message
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Tell us what you need help with."
+                required
+              ></textarea>
+            </label>
+            <button class="button primary" type="submit">Send Message</button>
+            <p class="form-note" id="formNote" role="status"></p>
+          </form>
+          <div class="contact-side">
+            <article class="email-card">
+              <span class="email-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" focusable="false">
+                  <path d="M5 8h22v16H5z" />
+                  <path d="m6 9 10 8 10-8" />
+                </svg>
+              </span>
+              <h3>Email Us Directly</h3>
+              <a href="mailto:samvirtualops@gmail.com">samvirtualops@gmail.com</a>
+            </article>
+            <aside class="contact-aside">
+              <h3>Why Work With Us?</h3>
+              <ul id="contactReasons"></ul>
+            </aside>
+            <article class="growth-card">
+              <h3>Let's Grow Together</h3>
+              <p>
+                You don't have to do everything alone. With DigitalEduPro by your side, focus on
+                your vision while we take care of the rest.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <div class="footer-orbit" aria-hidden="true">
+          <img
+            class="footer-logo"
+            src="site-assets/logo-transparent.png"
+            alt=""
+            width="883"
+            height="883"
+          />
+          <div class="footer-crystal-field">
+            <span class="footer-glass-chip chip-lock" style="--x: -4.2rem; --y: -1.25rem; --delay: -0.2s"></span>
+            <span class="footer-glass-chip chip-stack" style="--x: 4.2rem; --y: -1.25rem; --delay: -1.1s"></span>
+            <span class="footer-glass-chip chip-bell" style="--x: -3.35rem; --y: 2.25rem; --delay: -1.9s"></span>
+            <span class="footer-glass-chip chip-grid" style="--x: 3.35rem; --y: 2.25rem; --delay: -2.7s"></span>
+            <span class="footer-glass-chip chip-spark" style="--x: 0rem; --y: -3.3rem; --delay: -3.4s"></span>
+          </div>
+        </div>
+        <strong>DigitalEduPro</strong>
+        <a class="footer-email" href="mailto:samvirtualops@gmail.com">samvirtualops@gmail.com</a>
+        <p class="footer-copy">© 2026 DigitalEduPro. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="site-data.js?v=20260420-footer-glass-ui"></script>
+    <script src="main.js?v=20260420-footer-glass-ui"></script>
+  </body>
+</html>
