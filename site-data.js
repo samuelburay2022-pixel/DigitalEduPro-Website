@@ -77,6 +77,7 @@
       files: makeFiles("DigitalEduPro_Profile/Portfolio/ClientSupport", [
         "ClientSupport.png",
         "Excel_Tracking.png",
+        "Wix_Automation.png",
       ]),
     },
     {
@@ -97,8 +98,10 @@
       summary: "Print, poster, automation, rack card, guide, and promotional layout work.",
       files: makeFiles("DigitalEduPro_Profile/Portfolio/Layout Samples", [
         "Automation_Release_of_Liability_and_Indemnity Agreement.png",
+        "Back.png",
         "Birthday_Planner_guide.png",
         "Coke_Layout.png",
+        "Front.png",
         "Google_SketchUp.png",
         "Quantum Quest Poster A 11x17.jpg",
         "Quantum Quest Poster B 11x17.jpg",
@@ -112,10 +115,19 @@
     {
       title: "School Camp Website Media",
       summary: "A complete media set prepared for school camp website and promotion pages.",
-      files: makeFiles(
-        "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media",
-        Array.from({ length: 16 }, (_, index) => `${index + 1}.png`)
-      ),
+      files: [
+        ...makeFiles("DigitalEduPro_Profile/Portfolio/Books_Project", [
+          "school year camps-4.png",
+          "school year camps-8.png",
+          "school year camps-10.png",
+          "school year camps-12.png",
+          "school year camps-14 (1).png",
+        ]),
+        ...makeFiles(
+          "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media",
+          Array.from({ length: 16 }, (_, index) => `${index + 1}.png`)
+        ),
+      ],
     },
     {
       title: "Books Project",
@@ -131,11 +143,6 @@
         "CT_Sample2.png",
         "CT_Sample3.png",
         "CT_Sample4.png",
-        "school year camps-4.png",
-        "school year camps-8.png",
-        "school year camps-10.png",
-        "school year camps-12.png",
-        "school year camps-14 (1).png",
         "5.jpg",
         "6.jpg",
         "Screenshot 2569-04-16 at 10.14.17 PM.png",
@@ -208,6 +215,7 @@
         "Summer Lunch Party.mp4",
         "TheArcOfLearning.mp4",
         "Thrill Builders Camp.mp4",
+        "VKC_REVIEWS.mp4",
         "VKC_SpringSpectacularCamp_Instagram.mp4",
         "Village Kids Club Where Young Chefs Shine! 👨_🍳.mp4",
         "Where did bunny go ads.mp4",
