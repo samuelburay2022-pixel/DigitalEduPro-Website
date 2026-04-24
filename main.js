@@ -9,6 +9,39 @@
     return element;
   }
 
+  const lazyImageObserver =
+    "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const image = entry.target;
+              const pendingSource = image.dataset.src;
+              if (pendingSource) {
+                image.src = pendingSource;
+                delete image.dataset.src;
+              }
+              observer.unobserve(image);
+            });
+          },
+          { rootMargin: "220px 0px" },
+        )
+      : null;
+
+  function queueImageSource(image, src, { lazy = false } = {}) {
+    if (!src) return;
+
+    if (!lazy || !lazyImageObserver) {
+      if (lazyImageObserver) lazyImageObserver.unobserve(image);
+      delete image.dataset.src;
+      image.src = src;
+      return;
+    }
+
+    image.dataset.src = src;
+    lazyImageObserver.observe(image);
+  }
+
   const serviceIcons = {
     data:
       "<svg viewBox='0 0 32 32' aria-hidden='true'><path d='M6 25h20'/><path d='M9 22V12'/><path d='M16 22V7'/><path d='M23 22v-6'/><path d='M7 10l6 4 5-7 7 5'/></svg>",
@@ -54,6 +87,101 @@
     link.append(createElement("span", "file-link-title", file.title));
     link.append(createElement("span", "file-link-type", file.type));
     return link;
+  }
+
+  function createPortfolioDocumentCard(file, actionLabel = "Open sample") {
+    const documentCard = createElement("a", "portfolio-document-card");
+    documentCard.href = file.path;
+    documentCard.target = "_blank";
+    documentCard.rel = "noreferrer";
+    documentCard.append(createElement("span", "", file.type));
+    documentCard.append(createElement("strong", "", file.title));
+    documentCard.append(createElement("em", "", actionLabel));
+    return documentCard;
+  }
+
+  function createThumbFallback(file) {
+    return createElement(
+      "span",
+      "document-thumb media-thumb-fallback",
+      file.type === "Video" ? "Video preview" : "Preview unavailable"
+    );
+  }
+
+  function createThumbnailVisual(file) {
+    if (!file.isImage && file.type !== "Video") {
+      return createThumbFallback(file);
+    }
+
+    const image = document.createElement("img");
+    const primarySource = file.isImage ? file.thumbnail || file.path : file.poster || file.path;
+    const fallbackSource = file.isImage && primarySource !== file.path ? file.path : "";
+    let hasTriedFallback = false;
+
+    image.alt = `${file.title} preview`;
+    image.loading = "lazy";
+    image.decoding = "async";
+    if ("fetchPriority" in image) image.fetchPriority = "low";
+    image.addEventListener("error", () => {
+      if (!hasTriedFallback && fallbackSource) {
+        hasTriedFallback = true;
+        queueImageSource(image, fallbackSource, { lazy: false });
+        return;
+      }
+
+      if (lazyImageObserver) lazyImageObserver.unobserve(image);
+      if (image.isConnected) {
+        image.replaceWith(createThumbFallback(file));
+      }
+    });
+    queueImageSource(image, primarySource, { lazy: true });
+    return image;
+  }
+
+  function createCarouselImage(file, direction) {
+    const image = document.createElement("img");
+    image.src = file.path;
+    image.alt = file.title;
+    image.loading = "eager";
+    image.decoding = "async";
+    if ("fetchPriority" in image) image.fetchPriority = direction === 0 ? "high" : "auto";
+    image.addEventListener(
+      "error",
+      () => {
+        image.replaceWith(createPortfolioDocumentCard(file, "Open image"));
+      },
+      { once: true }
+    );
+
+    if (direction !== 0) {
+      image.classList.add(direction > 0 ? "enter-next" : "enter-previous");
+    }
+
+    return image;
+  }
+
+  function createCarouselVideo(file, direction) {
+    const video = document.createElement("video");
+    video.src = file.path;
+    if (file.poster) video.poster = file.poster;
+    video.controls = true;
+    video.muted = false;
+    video.volume = 1;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.addEventListener(
+      "error",
+      () => {
+        video.replaceWith(createPortfolioDocumentCard(file, "Open video"));
+      },
+      { once: true }
+    );
+
+    if (direction !== 0) {
+      video.classList.add(direction > 0 ? "enter-next" : "enter-previous");
+    }
+
+    return video;
   }
 
   function renderFileList(files) {
@@ -223,6 +351,12 @@
     let currentIndex = 0;
     const stage = createElement("div", "portfolio-carousel-stage");
     const frame = createElement("div", "portfolio-media-frame");
+    frame.setAttribute("aria-live", "polite");
+    const panel = createElement("div", "portfolio-carousel-panel");
+    const panelTitle = createElement("h4", "portfolio-carousel-title");
+    const panelMeta = createElement("p", "portfolio-carousel-meta");
+    const panelDescription = createElement("p", "portfolio-carousel-description");
+    panel.append(panelTitle, panelMeta, panelDescription);
     const previous = createElement("button", "carousel-button previous", "‹");
     previous.type = "button";
     previous.setAttribute("aria-label", `Show previous ${group.title} item`);
@@ -231,31 +365,17 @@
     next.type = "button";
     next.setAttribute("aria-label", `Show next ${group.title} item`);
 
-    stage.append(frame, previous, next);
+    stage.append(frame, panel, previous, next);
 
     const thumbnails = createElement("div", "portfolio-carousel-thumbs");
     const thumbnailButtons = group.files.map((file, index) => {
       const button = createElement("button", "portfolio-carousel-thumb");
       button.type = "button";
-      button.setAttribute("aria-label", `Show ${file.title}`);
-
-      if (file.isImage) {
-        const image = document.createElement("img");
-        image.src = file.path;
-        image.alt = "";
-        image.loading = "lazy";
-        button.append(image);
-      } else if (file.type === "Video") {
-        const image = document.createElement("img");
-        image.src = file.poster || file.path;
-        image.alt = "";
-        image.loading = "lazy";
-        button.append(image);
-      } else {
-        button.append(createElement("span", "document-thumb", file.type));
-      }
-
-      button.append(createElement("small", "", file.title));
+      button.setAttribute("aria-label", `Show ${file.title}. ${file.description}`);
+      button.title = file.description;
+      button.append(createThumbnailVisual(file));
+      button.append(createElement("small", "portfolio-carousel-thumb-title", file.title));
+      button.append(createElement("span", "portfolio-carousel-thumb-copy", file.description));
       button.addEventListener("click", () => {
         const direction = index >= currentIndex ? 1 : -1;
         updateCarousel(index, direction);
@@ -275,34 +395,18 @@
       }
 
       if (file.isImage) {
-        const image = document.createElement("img");
-        image.src = file.path;
-        image.alt = file.title;
-        image.loading = "eager";
-        if (direction !== 0) image.classList.add(direction > 0 ? "enter-next" : "enter-previous");
-        frame.append(image);
+        frame.append(createCarouselImage(file, direction));
       } else if (file.type === "Video") {
-        const video = document.createElement("video");
-        video.src = file.path;
-        if (file.poster) video.poster = file.poster;
-        video.controls = true;
-        video.muted = false;
-        video.volume = 1;
-        video.playsInline = true;
-        video.preload = "metadata";
-        if (direction !== 0) video.classList.add(direction > 0 ? "enter-next" : "enter-previous");
-        frame.append(video);
+        frame.append(createCarouselVideo(file, direction));
       } else {
-        const documentCard = createElement("a", "portfolio-document-card");
-        documentCard.href = file.path;
-        documentCard.target = "_blank";
-        documentCard.rel = "noreferrer";
-        documentCard.append(createElement("span", "", file.type));
-        documentCard.append(createElement("strong", "", file.title));
-        documentCard.append(createElement("em", "", "Open sample"));
+        const documentCard = createPortfolioDocumentCard(file);
         if (direction !== 0) documentCard.classList.add(direction > 0 ? "enter-next" : "enter-previous");
         frame.append(documentCard);
       }
+
+      panelTitle.textContent = file.title;
+      panelMeta.textContent = `${file.type} sample • ${currentIndex + 1} of ${group.files.length}`;
+      panelDescription.textContent = file.description || group.summary;
 
       thumbnailButtons.forEach((button, buttonIndex) => {
         const active = buttonIndex === currentIndex;
