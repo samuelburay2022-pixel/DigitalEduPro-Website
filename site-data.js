@@ -8,14 +8,20 @@
   }
 
   function titleFromName(name) {
-    const baseName = name.split("/").pop().replace(/\.[^.]+$/, "");
-    return baseName
-      .replace(/\.svg$/i, "")
-      .replace(/^\d+[\s_-]*/, "")
+    const baseName = name
+      .split("/")
+      .pop()
+      .replace(/\.[^.]+$/, "")
+      .replace(/\.svg$/i, "");
+    const cleaned = baseName
       .replace(/([a-z])([A-Z])/g, "$1 $2")
       .replace(/[_-]+/g, " ")
       .replace(/\s+/g, " ")
       .trim();
+    const normalized = cleaned
+      .replace(/^\d+[\s_-]*/, "")
+      .trim();
+    return normalized || (cleaned ? `Sample ${cleaned}` : "Sample file");
   }
 
   function typeFromName(name) {
@@ -27,6 +33,94 @@
     if (extension === "pages") return "Pages";
     if (extension === "html") return "Web page";
     return "File";
+  }
+
+  const portfolioFileDetails = {
+    "DigitalEduPro_Profile/Portfolio/ClientSupport/ClientSupport.png": {
+      thumbnail: "site-assets/portfolio-thumbs/client-support/ClientSupport.jpg",
+      description:
+        "Client onboarding, request tracking, and day-to-day support workflow organized in one clear view.",
+    },
+    "DigitalEduPro_Profile/Portfolio/ClientSupport/Excel_Tracking.png": {
+      thumbnail: "site-assets/portfolio-thumbs/client-support/Excel_Tracking.jpg",
+      description:
+        "Spreadsheet tracker used to monitor tasks, updates, deadlines, and client follow-through.",
+    },
+    "DigitalEduPro_Profile/Portfolio/ClientSupport/File Organization.png": {
+      thumbnail: "site-assets/portfolio-thumbs/client-support/File Organization.jpg",
+      description:
+        "Folder structure and naming system that keeps client files easy to locate, review, and maintain.",
+    },
+    "DigitalEduPro_Profile/Portfolio/ClientSupport/Omnisend.png": {
+      thumbnail: "site-assets/portfolio-thumbs/client-support/Omnisend.jpg",
+      description:
+        "Email automation and campaign workflow sample built in Omnisend for smoother client communication.",
+    },
+    "DigitalEduPro_Profile/Portfolio/ClientSupport/SemRush_SEO.png": {
+      thumbnail: "site-assets/portfolio-thumbs/client-support/SemRush_SEO.jpg",
+      description:
+        "SEO reporting and keyword monitoring sample used to track search visibility and content opportunities.",
+    },
+    "DigitalEduPro_Profile/Portfolio/ClientSupport/Slack.png": {
+      thumbnail: "site-assets/portfolio-thumbs/client-support/Slack.jpg",
+      description:
+        "Slack workspace example showing streamlined team messaging, updates, and response coordination.",
+    },
+    "DigitalEduPro_Profile/Portfolio/ClientSupport/Sling.png": {
+      thumbnail: "site-assets/portfolio-thumbs/client-support/Sling.jpg",
+      description:
+        "Scheduling and shift coordination sample using Sling to organize availability and team coverage.",
+    },
+    "DigitalEduPro_Profile/Portfolio/ClientSupport/Wix_Automation.png": {
+      thumbnail: "site-assets/portfolio-thumbs/client-support/Wix_Automation.jpg",
+      description:
+        "Wix automation setup that triggers reminders and follow-up actions for smoother client service.",
+    },
+  };
+
+  function defaultDescription(path, title, type) {
+    const normalizedPath = path.toLowerCase();
+
+    if (normalizedPath.includes("/website_funnelsample/")) {
+      return `${title} strategy sample showing how visitors move from discovery to action.`;
+    }
+
+    if (normalizedPath.includes("/clientsupport/")) {
+      return `${title} support workflow sample focused on organized communication and operations.`;
+    }
+
+    if (normalizedPath.includes("/schoolsystem_project/")) {
+      return `${title} system screen from a school operations and reporting workflow.`;
+    }
+
+    if (normalizedPath.includes("/layout samples/")) {
+      return `${title} design sample prepared for promotion, print, or event marketing.`;
+    }
+
+    if (normalizedPath.includes("/books_project/")) {
+      return `${title} learning and book design sample created for education-focused content.`;
+    }
+
+    if (normalizedPath.includes("/seminars_conducted/")) {
+      return `${title} seminar or training asset used for workshops and digital learning sessions.`;
+    }
+
+    if (normalizedPath.includes("/other work samples/")) {
+      return `${title} additional campaign or visual sample from past client work.`;
+    }
+
+    if (normalizedPath.includes("/video_samples/")) {
+      return `${title} video sample highlighting motion, campaign storytelling, and promotion.`;
+    }
+
+    if (normalizedPath.includes("/newsletters_samples/")) {
+      return `${title} communication sample for email outreach, updates, or client messaging.`;
+    }
+
+    if (type === "PDF") return `${title} downloadable document sample from the DigitalEduPro portfolio.`;
+    if (type === "Video") return `${title} video sample from the DigitalEduPro portfolio.`;
+    if (type === "Email") return `${title} email sample from the DigitalEduPro portfolio.`;
+    return `${title} ${type.toLowerCase()} sample from the DigitalEduPro portfolio.`;
   }
 
   function posterNameFromVideo(name) {
@@ -42,12 +136,20 @@
   function makeFiles(base, names) {
     return names.map((name) => {
       const type = typeFromName(name);
+      const path = `${base}/${name}`;
+      const title = titleFromName(name);
+      const details = portfolioFileDetails[path] || {};
       const file = {
-        title: titleFromName(name),
-        path: `${base}/${name}`,
+        title,
+        path,
         type,
         isImage: imageExtensions.has(extensionOf(name)),
+        description: details.description || defaultDescription(path, title, type),
       };
+
+      if (details.thumbnail) {
+        file.thumbnail = details.thumbnail;
+      }
 
       if (type === "Video") {
         file.poster = `site-assets/video-thumbs/${posterNameFromVideo(name)}`;
@@ -71,6 +173,13 @@
   ]);
 
   const portfolioGroups = [
+    {
+      title: "Website Funnel & Strategy",
+      summary: "A strategy-first funnel sample designed to guide visitors from discovery to action.",
+      files: makeFiles("DigitalEduPro_Profile/Portfolio/Website_FunnelSample", [
+        "Strategy.png",
+      ]),
+    },
     {
       title: "Client Support",
       summary: "Client support, tracking, automation, SEO, and organized operations samples.",
@@ -121,7 +230,7 @@
       title: "School Camp Website Media",
       summary: "A complete media set prepared for school camp website and promotion pages.",
       files: [
-        ...makeFiles("DigitalEduPro_Profile/Portfolio/Books_Project", [
+        ...makeFiles("DigitalEduPro_Profile/Portfolio/Layout Samples", [
           "school year camps-4.png",
           "school year camps-8.png",
           "school year camps-10.png",
@@ -130,7 +239,7 @@
         ]),
         ...makeFiles(
           "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media",
-          Array.from({ length: 16 }, (_, index) => `${index + 1}.png`)
+          ["4.png", "5.png", "7.png", "13.png", "14.png", "15.png", "16.png"]
         ),
       ],
     },
