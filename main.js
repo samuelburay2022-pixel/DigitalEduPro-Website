@@ -352,10 +352,6 @@
     const stage = createElement("div", "portfolio-carousel-stage");
     const frame = createElement("div", "portfolio-media-frame");
     frame.setAttribute("aria-live", "polite");
-    const panel = createElement("div", "portfolio-carousel-panel");
-    const panelTitle = createElement("h4", "portfolio-carousel-title");
-    const panelMeta = createElement("p", "portfolio-carousel-meta");
-    panel.append(panelTitle, panelMeta);
     const previous = createElement("button", "carousel-button previous", "‹");
     previous.type = "button";
     previous.setAttribute("aria-label", `Show previous ${group.title} item`);
@@ -364,7 +360,7 @@
     next.type = "button";
     next.setAttribute("aria-label", `Show next ${group.title} item`);
 
-    stage.append(frame, panel, previous, next);
+    stage.append(frame, previous, next);
 
     const thumbnails = createElement("div", "portfolio-carousel-thumbs");
     const thumbnailButtons = group.files.map((file, index) => {
@@ -402,10 +398,6 @@
         if (direction !== 0) documentCard.classList.add(direction > 0 ? "enter-next" : "enter-previous");
         frame.append(documentCard);
       }
-
-      panelTitle.textContent = file.title;
-      panelMeta.textContent = `${file.type} sample • ${currentIndex + 1} of ${group.files.length}`;
-
       thumbnailButtons.forEach((button, buttonIndex) => {
         const active = buttonIndex === currentIndex;
         button.classList.toggle("is-active", active);
