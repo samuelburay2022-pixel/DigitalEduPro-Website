@@ -76,6 +76,42 @@
       description:
         "Wix automation setup that triggers reminders and follow-up actions for smoother client service.",
     },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/school year camps-4.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/school year camps-4.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/school year camps-8.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/school year camps-8.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/school year camps-10.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/school year camps-10.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/school year camps-12.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/school year camps-12.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/school year camps-14 (1).png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/school year camps-14 (1).jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media/4.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/4.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media/5.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/5.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media/7.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/7.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media/13.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/13.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media/14.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/14.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media/15.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/15.jpg",
+    },
+    "DigitalEduPro_Profile/Portfolio/Layout Samples/SchoolCampWebsite_Media/16.png": {
+      thumbnail: "site-assets/portfolio-thumbs/school-camp/16.jpg",
+    },
   };
 
   function defaultDescription(path, title, type) {
