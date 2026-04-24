@@ -73,10 +73,15 @@
   const portfolioGroups = [
     {
       title: "Client Support",
-      summary: "Client support workflow and tracking samples for organized operations.",
+      summary: "Client support, tracking, automation, SEO, and organized operations samples.",
       files: makeFiles("DigitalEduPro_Profile/Portfolio/ClientSupport", [
         "ClientSupport.png",
         "Excel_Tracking.png",
+        "File Organization.png",
+        "Omnisend.png",
+        "SemRush_SEO.png",
+        "Slack.png",
+        "Sling.png",
         "Wix_Automation.png",
       ]),
     },
