@@ -2603,6 +2603,7 @@ p {
   bottom: 1rem;
   left: 1rem;
   z-index: 2;
+  max-width: min(calc(100% - 2rem), 48rem);
   padding: 1rem;
   border: 1px solid var(--glass-line);
   border-radius: 8px;
@@ -2612,6 +2613,7 @@ p {
   box-shadow: var(--glass-shadow), var(--glass-inner);
   display: grid;
   gap: 0.25rem;
+  pointer-events: none;
   backdrop-filter: blur(22px) saturate(155%);
   -webkit-backdrop-filter: blur(22px) saturate(155%);
 }
@@ -2625,6 +2627,13 @@ p {
   font-weight: 700;
 }
 
+.portfolio-carousel-description {
+  margin: 0;
+  color: rgba(24, 45, 70, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .portfolio-carousel-thumbs {
   overflow-x: auto;
   padding: 0.2rem 0 0.4rem;
@@ -2635,7 +2644,7 @@ p {
 
 .portfolio-carousel-thumb {
   flex: 0 0 9.5rem;
-  min-height: 8rem;
+  min-height: 11rem;
   padding: 0.45rem;
   border: 1px solid var(--glass-line);
   border-radius: 8px;
@@ -2650,6 +2659,7 @@ p {
   text-align: left;
   cursor: pointer;
   scroll-snap-align: start;
+  contain: content;
 }
 
 .portfolio-carousel-thumb img,
@@ -2668,9 +2678,20 @@ p {
   font-weight: 700;
 }
 
-.portfolio-carousel-thumb small {
+.portfolio-carousel-thumb-title {
+  display: block;
   font-weight: 700;
   line-height: 1.25;
+}
+
+.portfolio-carousel-thumb-copy {
+  display: -webkit-box;
+  overflow: hidden;
+  color: rgba(24, 45, 70, 0.72);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .portfolio-carousel-thumb.is-active,
@@ -2704,6 +2725,8 @@ p {
   gap: 1rem;
   backdrop-filter: blur(22px) saturate(155%);
   -webkit-backdrop-filter: blur(22px) saturate(155%);
+  content-visibility: auto;
+  contain-intrinsic-size: 920px;
 }
 
 .portfolio-category-header {
@@ -2993,7 +3016,7 @@ section {
 }
 
 .portfolio-carousel-panel {
-  display: none;
+  display: grid;
 }
 
 .portfolio-media-frame img,
@@ -3018,6 +3041,17 @@ section {
   border-radius: 6px;
   display: grid;
   place-items: center;
+}
+
+.media-thumb-fallback {
+  padding: 0.75rem;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .tools-section {
