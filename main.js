@@ -355,8 +355,7 @@
     const panel = createElement("div", "portfolio-carousel-panel");
     const panelTitle = createElement("h4", "portfolio-carousel-title");
     const panelMeta = createElement("p", "portfolio-carousel-meta");
-    const panelDescription = createElement("p", "portfolio-carousel-description");
-    panel.append(panelTitle, panelMeta, panelDescription);
+    panel.append(panelTitle, panelMeta);
     const previous = createElement("button", "carousel-button previous", "‹");
     previous.type = "button";
     previous.setAttribute("aria-label", `Show previous ${group.title} item`);
@@ -406,7 +405,6 @@
 
       panelTitle.textContent = file.title;
       panelMeta.textContent = `${file.type} sample • ${currentIndex + 1} of ${group.files.length}`;
-      panelDescription.textContent = file.description || group.summary;
 
       thumbnailButtons.forEach((button, buttonIndex) => {
         const active = buttonIndex === currentIndex;
