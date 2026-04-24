@@ -2627,13 +2627,6 @@ p {
   font-weight: 700;
 }
 
-.portfolio-carousel-description {
-  margin: 0;
-  color: rgba(24, 45, 70, 0.9);
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
 .portfolio-carousel-thumbs {
   overflow-x: auto;
   padding: 0.2rem 0 0.4rem;
