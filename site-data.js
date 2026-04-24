@@ -210,13 +210,6 @@
 
   const portfolioGroups = [
     {
-      title: "Website Funnel & Strategy",
-      summary: "A strategy-first funnel sample designed to guide visitors from discovery to action.",
-      files: makeFiles("DigitalEduPro_Profile/Portfolio/Website_FunnelSample", [
-        "Strategy.png",
-      ]),
-    },
-    {
       title: "Client Support",
       summary: "Client support, tracking, automation, SEO, and organized operations samples.",
       files: makeFiles("DigitalEduPro_Profile/Portfolio/ClientSupport", [
@@ -504,14 +497,6 @@
     ],
     serviceVisuals,
     portfolio: [
-      {
-        category: "Website Funnel & Strategy",
-        title: "Funnel Strategy Map",
-        copy:
-          "A structured website funnel plan designed to guide visitors from awareness to action.",
-        image: "DigitalEduPro_Profile/Portfolio/Website_FunnelSample/Strategy.png",
-        alt: "Website funnel strategy sample",
-      },
       {
         category: "Client Support",
         title: "Support Workflow & Tracking",
